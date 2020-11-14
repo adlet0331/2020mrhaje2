@@ -1,12 +1,18 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class GameBoard : MonoBehaviour, IPointerClickHandler
+public class GameBoard : MonoBehaviour
 {
-    public int index;
-
-    public void OnPointerClick(PointerEventData eventData)
+    // Start is called before the first frame update
+    void Start()
     {
-        Debug.Log("Clicked");
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
