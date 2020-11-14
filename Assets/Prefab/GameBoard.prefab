@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5499706942734838658}
   - component: {fileID: 2483388364250602312}
   - component: {fileID: 275395454165888095}
+  - component: {fileID: 3163052042382182146}
   m_Layer: 8
   m_Name: GameBoard
   m_TagString: Untagged
@@ -121,3 +122,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5499706942734838659}
   m_CullTransparentMesh: 1
+--- !u!114 &3163052042382182146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499706942734838659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96be118fdecf38940a4961934ed7c39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
