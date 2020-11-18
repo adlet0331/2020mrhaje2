@@ -57,10 +57,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\OptionsCode.cs" />
-    <Compile Include="Assets\Scripts\UI\SymbolClick.cs" />
-    <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
+    <Compile Include="Assets\Scripts\UI\SymbolScript.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
-    <Compile Include="Assets\Scripts\MainCamera.cs" />
+    <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
+    <Compile Include="Assets\Scripts\UI\UIControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
