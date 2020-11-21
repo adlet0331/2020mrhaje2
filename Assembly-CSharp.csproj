@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Sound\DontDestroyAudio.cs" />
     <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
+    <Compile Include="Assets\Scripts\Board\SymbolInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

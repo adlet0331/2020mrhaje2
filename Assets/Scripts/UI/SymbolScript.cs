@@ -7,14 +7,9 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
     private GameObject pieceUI;
     private GameObject card;
 
-    public Sprite cardImage;
-    public string cardName;
-    public int maxHP;
-    public string abilityName;
-    public string abilityInformation;
-    public int move;
-    public int range;
-    public int damage;
+    public enum NameToNum{
+
+    }
 
     public int deltaMove;
     public int deltaRange;
@@ -64,14 +59,14 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         {
             selected = true;
             pieceUI.GetComponent<UIControl>().selectedPiece = gameObject;
-            card.transform.Find("Card Image").GetComponent<Image>().sprite = cardImage;
+            /*card.transform.Find("Card Image").GetComponent<Image>().sprite = cardImage;
             card.transform.Find("Name").GetComponent<Text>().text = cardName;
             card.transform.Find("MaxHP").GetComponent<Text>().text = maxHP.ToString();
             card.transform.Find("Ability Name").GetComponent<Text>().text = abilityName;
             card.transform.Find("Ability Information").GetComponent<Text>().text = abilityInformation;
             card.transform.Find("Move").GetComponent<Text>().text = move.ToString() + "+" + deltaMove.ToString();
             card.transform.Find("Range").GetComponent<Text>().text = range.ToString() + "+" + deltaRange.ToString();
-            card.transform.Find("Damage").GetComponent<Text>().text = damage.ToString() + "+" + deltaDamage.ToString();
+            card.transform.Find("Damage").GetComponent<Text>().text = damage.ToString() + "+" + deltaDamage.ToString();*/
             card.SetActive(true);
             pieceUI.transform.Find("Move Button").gameObject.SetActive(true);
             pieceUI.transform.Find("Attack Button").gameObject.SetActive(true);
