@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class UIControl : MonoBehaviour, IPointerClickHandler
+public class UIControl : MonoBehaviour
 {
-    public void OnPointerClick(PointerEventData eventData)
+    public GameObject selectedPiece;
+
+    public void MovePiece()
     {
-        Debug.Log("123");
+
     }
 }

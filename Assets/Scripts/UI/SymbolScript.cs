@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class SymbolScript : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject card;
+    private GameObject pieceUI;
+    private GameObject card;
 
     public Sprite cardImage;
     public string cardName;
@@ -24,7 +25,8 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Start()
     {
-        card = GameObject.Find("Cards").transform.Find("BaseCard").gameObject;
+        pieceUI = GameObject.Find("PieceUI");
+        card = pieceUI.transform.Find("Cards").transform.Find("BaseCard").gameObject;
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
     {
         if (!selected)
         {
+            // 다른 모든 피스에 대해 PieceSelect(false) 실행
             Transform board = GameObject.Find("GameBoard").transform;
             foreach (Transform child in board)
             {
@@ -60,6 +63,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         if (state)
         {
             selected = true;
+            pieceUI.GetComponent<UIControl>().selectedPiece = gameObject;
             card.transform.Find("Card Image").GetComponent<Image>().sprite = cardImage;
             card.transform.Find("Name").GetComponent<Text>().text = cardName;
             card.transform.Find("MaxHP").GetComponent<Text>().text = maxHP.ToString();
@@ -69,12 +73,16 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
             card.transform.Find("Range").GetComponent<Text>().text = range.ToString() + "+" + deltaRange.ToString();
             card.transform.Find("Damage").GetComponent<Text>().text = damage.ToString() + "+" + deltaDamage.ToString();
             card.SetActive(true);
+            pieceUI.transform.Find("Move Button").gameObject.SetActive(true);
+            pieceUI.transform.Find("Attack Button").gameObject.SetActive(true);
             // 하이라이트 켜기
         }
         else
         {
             selected = false;
             card.SetActive(false);
+            pieceUI.transform.Find("Move Button").gameObject.SetActive(false);
+            pieceUI.transform.Find("Attack Button").gameObject.SetActive(false);
             // 하이라이트 끄기
         }
     }
