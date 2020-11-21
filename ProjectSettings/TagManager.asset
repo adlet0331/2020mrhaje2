@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 138264007
+    locked: 0
+  - name: GameBoard
+    uniqueID: 353800455
+    locked: 0
+  - name: Piece
+    uniqueID: 1707833657
+    locked: 0
+  - name: Player UI
+    uniqueID: 3585830809
+    locked: 0
+  - name: Option
+    uniqueID: 1557852365
+    locked: 0

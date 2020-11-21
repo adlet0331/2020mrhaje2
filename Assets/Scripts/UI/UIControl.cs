@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GameBoard : MonoBehaviour, IPointerClickHandler
+public class UIControl : MonoBehaviour, IPointerClickHandler
 {
-    public int index;
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(index);
+        Debug.Log("123");
     }
 }
