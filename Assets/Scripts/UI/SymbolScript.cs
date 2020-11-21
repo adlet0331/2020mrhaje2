@@ -20,10 +20,10 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
     public int deltaRange;
     public int deltaDamage;
 
-    private bool selected;
+    [SerializeField] private bool selected;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() //PieceUI랑 Basecard gameObject받아오기 
     {
         pieceUI = GameObject.Find("PieceUI");
         card = pieceUI.transform.Find("Cards").transform.Find("BaseCard").gameObject;
@@ -58,7 +58,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void PieceSelect(bool state)
+    public void PieceSelect(bool state) //피스 선택 (true면 이 데이터 집어넣고 false면 끄기)
     {
         if (state)
         {

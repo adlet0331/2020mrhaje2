@@ -60,8 +60,8 @@
     <Compile Include="Assets\Scripts\PauseMenu\OptionsCode.cs" />
     <Compile Include="Assets\Scripts\UI\SymbolScript.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
-    <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
     <Compile Include="Assets\Scripts\Sound\DontDestroyAudio.cs" />
+    <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
