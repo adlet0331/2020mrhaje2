@@ -56,11 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\UIControl.cs" />
-    <Compile Include="Assets\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\OptionsCode.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu\OptionsCode.cs" />
     <Compile Include="Assets\Scripts\UI\SymbolScript.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
+    <Compile Include="Assets\Scripts\Sound\DontDestroyAudio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
