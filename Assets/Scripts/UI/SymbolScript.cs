@@ -75,7 +75,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
             card.SetActive(true);
             pieceUI.transform.Find("Move Button").gameObject.SetActive(true);
             pieceUI.transform.Find("Attack Button").gameObject.SetActive(true);
-            // 하이라이트 켜기
+            transform.Find("Highlight").gameObject.SetActive(true);
         }
         else
         {
@@ -83,7 +83,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
             card.SetActive(false);
             pieceUI.transform.Find("Move Button").gameObject.SetActive(false);
             pieceUI.transform.Find("Attack Button").gameObject.SetActive(false);
-            // 하이라이트 끄기
+            transform.Find("Highlight").gameObject.SetActive(false);
         }
     }
 }
