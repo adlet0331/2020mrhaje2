@@ -9,7 +9,7 @@ public class UIControl : MonoBehaviour
 
     private void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject() == true && Input.GetMouseButtonDown(0))
+        if (EventSystem.current.IsPointerOverGameObject() == true && Input.GetMouseButtonDown(1))
         {
             foreach(SymbolScript symbolScript in allSymbols)
             {
