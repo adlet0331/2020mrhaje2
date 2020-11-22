@@ -32,16 +32,4 @@ public class UIControl : MonoBehaviour
         moveSelected = moveButton == EventSystem.current.currentSelectedGameObject;
         attackSelected = attackButton == EventSystem.current.currentSelectedGameObject;
     }
-
-    /*public void MoveClick()
-    {
-        moveSelected = true;
-        attackSelected = false;
-    }
-
-    public void AttackClick()
-    {
-        moveSelected = false;
-        attackSelected = true;
-    }*/
 }

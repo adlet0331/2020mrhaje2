@@ -14,7 +14,6 @@ public class GameBoard : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left) return;
-        Debug.Log("Board Click " + index.ToString());
         if (PieceUI.moveSelected) PieceUI.selectedPiece.GetComponent<SymbolScript>().Move(this);
     }
 }

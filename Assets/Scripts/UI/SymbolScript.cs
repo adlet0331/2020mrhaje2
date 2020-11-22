@@ -10,6 +10,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
 
     public enum NameToNum { Infatry, Sniper, MachineGunner }
     public NameToNum cardName;
+    public int team;
 
     // 능력치 보정 값
     public int deltaMove;
@@ -39,7 +40,9 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         {
             // 다른 모든 피스에 대해 PieceSelect(false) 실행
             foreach (SymbolScript symbol in pieceUI.allSymbols) symbol.PieceSelect(false);
-            PieceSelect(true);
+
+            // 턴이 맞아야만 유닛이 선택됨
+            if (GameObject.Find("Turn Manager").GetComponent<TurnManager>().turn == team) PieceSelect(true);
         }
         else
         {
