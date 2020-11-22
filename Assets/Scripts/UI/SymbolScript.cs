@@ -69,6 +69,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         else
         {
             selected = false;
+            pieceUI.GetComponent<UIControl>().selectedPiece = null;
             card.SetActive(false);
             pieceUI.transform.Find("Move Button").gameObject.SetActive(false);
             pieceUI.transform.Find("Attack Button").gameObject.SetActive(false);
