@@ -460,6 +460,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBoard (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
 --- !u!224 &22502154 stripped
@@ -978,6 +983,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameBoard (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
@@ -1832,7 +1842,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1852,13 +1862,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215650507}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1215650509}
+        m_TargetAssemblyTypeName: UIControl, Assembly-CSharp
+        m_MethodName: AttackClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4328,6 +4338,8 @@ MonoBehaviour:
   - {fileID: 1845587385}
   - {fileID: 686126591}
   - {fileID: 9999205}
+  moveSelected: 0
+  attackSelected: 0
 --- !u!1 &1232440021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,6 +5101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBoard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
 --- !u!224 &1460126072 stripped
@@ -5214,6 +5231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBoard (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
 --- !u!224 &1461963449 stripped
@@ -5338,6 +5360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameBoard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
@@ -5499,6 +5526,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameBoard (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
@@ -5703,6 +5735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameBoard (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
@@ -6397,6 +6434,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBoard (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
 --- !u!224 &1778902286 stripped
@@ -6699,6 +6741,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBoard (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}
 --- !u!224 &1852427468 stripped
@@ -6769,7 +6816,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6791,7 +6838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1215650509}
         m_TargetAssemblyTypeName: UIControl, Assembly-CSharp
-        m_MethodName: MovePiece
+        m_MethodName: MoveClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7391,6 +7438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameBoard (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159553117622488345, guid: 45deddd776814624e8d8b73a04014250,
+        type: 3}
+      propertyPath: index
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45deddd776814624e8d8b73a04014250, type: 3}

@@ -4,15 +4,14 @@ using UnityEngine.UI;
 
 public class SymbolScript : MonoBehaviour, IPointerClickHandler
 {
-    private GameObject pieceUI;
+    private UIControl pieceUI;
     private GameObject card;
     private SymbolInfo symbolInfo;
 
-    public enum NameToNum{
-        Infatry, Sniper, MachineGunner
-    }
+    public enum NameToNum { Infatry, Sniper, MachineGunner }
     public NameToNum cardName;
 
+    // 능력치 보정 값
     public int deltaMove;
     public int deltaRange;
     public int deltaDamage;
@@ -20,9 +19,10 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool selected;
 
     // Start is called before the first frame update
-    void Start() // PieceUI, Basecard, Symbol Information gameObject받아오기 
+    void Start()
     {
-        pieceUI = GameObject.Find("PieceUI");
+        // PieceUI, Basecard, Symbol Information 받아오기
+        pieceUI = GameObject.Find("PieceUI").GetComponent<UIControl>();
         card = pieceUI.transform.Find("Cards").transform.Find("BaseCard").gameObject;
         symbolInfo = GameObject.Find("Symbol Information").GetComponent<SymbolInfo>();
     }
@@ -38,7 +38,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         if (!selected)
         {
             // 다른 모든 피스에 대해 PieceSelect(false) 실행
-            foreach (SymbolScript symbol in pieceUI.GetComponent<UIControl>().allSymbols) symbol.PieceSelect(false);
+            foreach (SymbolScript symbol in pieceUI.allSymbols) symbol.PieceSelect(false);
             PieceSelect(true);
         }
         else
@@ -47,21 +47,27 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void PieceSelect(bool state) // 피스 선택 (true면 이 데이터 집어넣고 false면 끄기)
+    // 피스 선택 (true면 이 데이터 집어넣고 false면 끄기)
+    public void PieceSelect(bool state)
     {
         if (state)
         {
             selected = true;
-            pieceUI.GetComponent<UIControl>().selectedPiece = gameObject;
-            card.transform.Find("Card Image").GetComponent<Image>().sprite = symbolInfo.cardInfos[(int)cardName].cardImage;
-            card.transform.Find("Name").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].cardName;
-            card.transform.Find("MaxHP").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].maxHP.ToString();
-            card.transform.Find("Ability Name").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].abilityName;
-            card.transform.Find("Ability Information").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].abilityInformation;
-            card.transform.Find("Move").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].move.ToString() + "+" + deltaMove.ToString();
-            card.transform.Find("Range").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].range.ToString() + "+" + deltaRange.ToString();
-            card.transform.Find("Damage").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].damage.ToString() + "+" + deltaDamage.ToString();
-            card.SetActive(true);
+            pieceUI.selectedPiece = gameObject;
+
+            // card 관련 처리
+            {
+                card.transform.Find("Card Image").GetComponent<Image>().sprite = symbolInfo.cardInfos[(int)cardName].cardImage;
+                card.transform.Find("Name").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].cardName;
+                card.transform.Find("MaxHP").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].maxHP.ToString();
+                card.transform.Find("Ability Name").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].abilityName;
+                card.transform.Find("Ability Information").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].abilityInformation;
+                card.transform.Find("Move").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].move.ToString() + "+" + deltaMove.ToString();
+                card.transform.Find("Range").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].range.ToString() + "+" + deltaRange.ToString();
+                card.transform.Find("Damage").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].damage.ToString() + "+" + deltaDamage.ToString();
+                card.SetActive(true);
+            }
+
             pieceUI.transform.Find("Move Button").gameObject.SetActive(true);
             pieceUI.transform.Find("Attack Button").gameObject.SetActive(true);
             transform.Find("Highlight").gameObject.SetActive(true);
@@ -69,11 +75,25 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler
         else
         {
             selected = false;
-            pieceUI.GetComponent<UIControl>().selectedPiece = null;
+            pieceUI.selectedPiece = null;
+
             card.SetActive(false);
+
             pieceUI.transform.Find("Move Button").gameObject.SetActive(false);
             pieceUI.transform.Find("Attack Button").gameObject.SetActive(false);
             transform.Find("Highlight").gameObject.SetActive(false);
         }
+        pieceUI.moveSelected = false;
+        pieceUI.attackSelected = false;
+    }
+
+    public void Move(GameBoard board)
+    {
+        Debug.Log("Move");
+        if (Mathf.Abs(transform.parent.GetComponent<GameBoard>().index - board.index) <= symbolInfo.cardInfos[(int)cardName].move + deltaMove)
+        {
+            transform.SetParent(board.transform);
+        }
+        pieceUI.moveSelected = false;
     }
 }
