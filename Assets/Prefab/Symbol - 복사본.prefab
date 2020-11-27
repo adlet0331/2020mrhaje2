@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3605035637821898141}
-  - component: {fileID: 605243129}
+  - component: {fileID: 5877173875489744930}
   m_Layer: 0
   m_Name: "Symbol - \uBCF5\uC0AC\uBCF8"
   m_TagString: Untagged
@@ -115,7 +115,7 @@ RectTransform:
   m_AnchoredPosition: {x: 16, y: 178}
   m_SizeDelta: {x: 200, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &605243129
+--- !u!114 &5877173875489744930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4428450795081587264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a6d119819e69f4f96bca069d04bb79, type: 3}
+  m_Script: {fileID: 11500000, guid: d13da16d248fe29408305c3ac96b50db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: 0
