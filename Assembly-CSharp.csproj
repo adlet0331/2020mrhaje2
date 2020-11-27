@@ -64,12 +64,11 @@
      <Compile Include="Assets\Scripts\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Sound\DontDestroyAudio.cs" />
      <Compile Include="Assets\Scripts\Start\StartPlayerToggle.cs" />
+     <Compile Include="Assets\Scripts\UI\MinimapSymbolScript.cs" />
+     <Compile Include="Assets\Scripts\Minimap\showScreen.cs" />
      <Compile Include="Assets\Scripts\Start\StartSceneManager.cs" />
      <Compile Include="Assets\Scripts\Board\GameBoard.cs" />
      <Compile Include="Assets\Scripts\Board\SymbolInfo.cs" />
-     <Compile Include="Assets\Scripts\UI\MinimapSymbolScript.cs" />
-     <Compile Include="Assets\Scripts\Board\MinimapGameBoard.cs" />
-     <Compile Include="Assets\Scripts\Minimap\showScreen.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

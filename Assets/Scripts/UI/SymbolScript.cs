@@ -8,6 +8,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
     private GameObject card;
     private SymbolInfo symbolInfo;
     private TurnManager turnManager;
+    private MinimapSymbolScript miniSymbol;
 
     public enum NameToNum { Infatry, Sniper, MachineGunner }
     public NameToNum cardName;
@@ -32,6 +33,9 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
 
         // HP 초기화
         currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;
+
+        //미니맵에서 자기 자신 찾기
+        miniSymbol = GameObject.Find("mini" + this.name).GetComponent<MinimapSymbolScript>();
     }
 
     // Update is called once per frame
@@ -41,6 +45,9 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
         Vector3 barScale = transform.Find("Current HP Bar").localScale;
         barScale.x = (float)currentHP / symbolInfo.cardInfos[(int)cardName].maxHP;
         transform.Find("Current HP Bar").localScale = barScale;
+
+        //미니맵 자신에게 정보 전달
+        miniSymbol.getHP(currentHP);
 
         // HP가 0 이하가 되면 파괴
         if (currentHP <= 0)
@@ -118,6 +125,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
     {
         if (Mathf.Abs(transform.parent.GetComponent<GameBoard>().index - board.index) <= symbolInfo.cardInfos[(int)cardName].move + deltaMove)
         {
+            miniSymbol.Move(GameObject.Find("mini" + board.name));
             transform.SetParent(board.transform);
         }
         pieceUI.moveSelected = false;
