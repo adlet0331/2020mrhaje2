@@ -8,12 +8,12 @@ public class showScreen : MonoBehaviour
 
     public void Start()
     {
-        v = transform.position;
+        v = transform.localPosition;
     }
 
     public void SetLocation(float value)
     {
-        transform.position = v + new Vector3(655*value, 0, 0);
+        transform.localPosition = v + new Vector3(326*value, 0, 0);
     }
 
 }
