@@ -8,11 +8,13 @@ public class TurnManager : MonoBehaviour
     // 1 - 왼쪽 // 2 - 오른쪽 //
     public int turn;
     private GameObject turnUI;
+    private Dice dice;
 
     private void Start()
     {
         turn = 1;
         turnUI = GameObject.Find("TurnUI");
+        dice = GameObject.Find("Dice").GetComponent<Dice>();
     }
 
     public void EndTurnButtonClick()
@@ -21,5 +23,6 @@ public class TurnManager : MonoBehaviour
         else turn = 1;
         turnUI.transform.Find("Text").GetComponent<Text>().text = turn.ToString() + "P Turn";
         foreach (SymbolScript symbol in GameObject.Find("PieceUI").GetComponent<UIControl>().allSymbols) symbol.PieceSelect(false);
+        dice.RollDice();
     }
 }

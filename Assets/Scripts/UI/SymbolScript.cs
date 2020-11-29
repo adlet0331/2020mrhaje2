@@ -97,9 +97,9 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
             card.transform.Find("MaxHP").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].maxHP.ToString();
             card.transform.Find("Ability Name").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].abilityName;
             card.transform.Find("Ability Information").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].abilityInformation;
-            card.transform.Find("Move").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].move.ToString() + "+" + deltaMove.ToString();
-            card.transform.Find("Range").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].range.ToString() + "+" + deltaRange.ToString();
-            card.transform.Find("Damage").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].damage.ToString() + "+" + deltaDamage.ToString();
+            card.transform.Find("Move").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].move + (deltaMove>=0?"+":"") + deltaMove;
+            card.transform.Find("Range").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].range + (deltaRange >= 0 ? "+" : "") + deltaRange;
+            card.transform.Find("Damage").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].damage + (deltaDamage >= 0 ? "+" : "") + symbolInfo.cardInfos[(int)cardName].damage * deltaDamage / 100;
             card.SetActive(true);
 
             pieceUI.transform.Find("Move Button").gameObject.SetActive(true);
@@ -137,7 +137,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
         if (Mathf.Abs(transform.parent.GetComponent<GameBoard>().index - target.transform.parent.GetComponent<GameBoard>().index)
             <= symbolInfo.cardInfos[(int)cardName].range + deltaRange)
         {
-            target.currentHP -= symbolInfo.cardInfos[(int)cardName].damage + deltaDamage;
+            target.currentHP -= symbolInfo.cardInfos[(int)cardName].damage + symbolInfo.cardInfos[(int)cardName].damage * deltaDamage / 100;
         }
         pieceUI.attackSelected = false;
         PieceSelect(false);
