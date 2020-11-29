@@ -20,6 +20,9 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
     public int deltaRange;
     public int deltaDamage;
 
+    public bool moved;
+    public bool attacked;
+
     [SerializeField] private bool selected;
 
     // Start is called before the first frame update
@@ -127,6 +130,8 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
         {
             miniSymbol.Move(GameObject.Find("mini" + board.name));
             transform.SetParent(board.transform);
+            if (!moved && !attacked) turnManager.actedUnit++;
+            moved = true;
         }
         pieceUI.moveSelected = false;
         PieceSelect(false);
@@ -138,6 +143,8 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
             <= symbolInfo.cardInfos[(int)cardName].range + deltaRange)
         {
             target.currentHP -= symbolInfo.cardInfos[(int)cardName].damage + symbolInfo.cardInfos[(int)cardName].damage * deltaDamage / 100;
+            if (!moved && !attacked) turnManager.actedUnit++;
+            attacked = true;
         }
         pieceUI.attackSelected = false;
         PieceSelect(false);
