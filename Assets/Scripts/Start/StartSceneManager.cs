@@ -48,7 +48,7 @@ public class StartSceneManager : MonoBehaviour
     public void StartButton()
     {
         SymbolInfo.Instance.setBoardPiece(CardList_Player1, CardList_Player2);
-        SceneManager.LoadScene("_MainScene");
+        SceneManager.LoadScene("MainScene");
     }
     public void AddButton()
     {
