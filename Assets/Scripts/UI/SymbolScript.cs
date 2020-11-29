@@ -12,6 +12,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
 
     public enum NameToNum { Infatry, Sniper, MachineGunner }
     public NameToNum cardName;
+    public int index;
     public int team;
 
     // 능력치
@@ -22,6 +23,22 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
 
     [SerializeField] private bool selected;
 
+    void setCardName()
+    {
+        if(team == 1)
+        {
+            NameToNum cardname = SymbolInfo.Instance.BoardPieceInfo_Left[index];
+            this.cardName = cardname;
+            this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardname].pieceSprite_L;
+        }
+        if(team == 2)
+        {
+            NameToNum cardname = SymbolInfo.Instance.BoardPieceInfo_Right[index];
+            this.cardName = cardname;
+            this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardname].pieceSprite_R;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +47,8 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
         card = pieceUI.transform.Find("Cards").transform.Find("BaseCard").gameObject;
         symbolInfo = GameObject.Find("Symbol Information").GetComponent<SymbolInfo>();
         turnManager = GameObject.Find("Turn Manager").GetComponent<TurnManager>();
+
+        setCardName();
 
         // HP 초기화
         currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;

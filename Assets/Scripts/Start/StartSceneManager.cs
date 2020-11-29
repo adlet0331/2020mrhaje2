@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartSceneManager : MonoBehaviour
 {
@@ -19,7 +19,6 @@ public class StartSceneManager : MonoBehaviour
     private GameObject card;
     private SymbolInfo symbolInfo;
     [SerializeField] private bool Is_Player1;
-    [SerializeField] private bool Is_FixedCard;
     [SerializeField] private SymbolScript.NameToNum currentCardName;
 
     private event Action<SymbolScript.NameToNum> Clicked;
@@ -45,23 +44,11 @@ public class StartSceneManager : MonoBehaviour
             Player2_Check.GetComponent<Text>().color = Color.red;
         }
     }
-    private void Awake()
+    
+    public void StartButton()
     {
-        card = GameObject.Find("Canvas").transform.Find("BaseCard").gameObject;
-        symbolInfo = GameObject.Find("Symbol Information").GetComponent<SymbolInfo>();
-        foreach (StartTextmesh cardmesh in CardList.GetComponentsInChildren<StartTextmesh>())
-        {
-            cardmesh.Clicked += TextmeshClicked;
-        }
-        Player1_Check.GetComponentInChildren<StartPlayerToggle>().Checked += PlayerChecked;
-        Player2_Check.GetComponentInChildren<StartPlayerToggle>().Checked += PlayerChecked;
-        CardList_Player1 = new List<SymbolScript.NameToNum>();
-        CardList_Player2 = new List<SymbolScript.NameToNum>();
-    }
-    private void Start()
-    {
-        TextmeshClicked(SymbolScript.NameToNum.Infatry);
-        PlayerChecked(true);
+        SymbolInfo.Instance.setBoardPiece(CardList_Player1, CardList_Player2);
+        SceneManager.LoadScene("_MainScene");
     }
     public void AddButton()
     {
@@ -109,7 +96,25 @@ public class StartSceneManager : MonoBehaviour
             }
         }
     }
-    void SetCard(SymbolScript.NameToNum cardName)
+    private void Awake()
+    {
+        card = GameObject.Find("Canvas").transform.Find("BaseCard").gameObject;
+        symbolInfo = GameObject.Find("Symbol Information").GetComponent<SymbolInfo>();
+        foreach (StartTextmesh cardmesh in CardList.GetComponentsInChildren<StartTextmesh>())
+        {
+            cardmesh.Clicked += TextmeshClicked;
+        }
+        Player1_Check.GetComponentInChildren<StartPlayerToggle>().Checked += PlayerChecked;
+        Player2_Check.GetComponentInChildren<StartPlayerToggle>().Checked += PlayerChecked;
+        CardList_Player1 = new List<SymbolScript.NameToNum>();
+        CardList_Player2 = new List<SymbolScript.NameToNum>();
+    }
+    private void Start()
+    {
+        TextmeshClicked(SymbolScript.NameToNum.Infatry);
+        PlayerChecked(true);
+    }
+    private void SetCard(SymbolScript.NameToNum cardName)
     {
         card.transform.Find("Card Image").GetComponent<Image>().sprite = symbolInfo.cardInfos[(int)cardName].cardImage;
         card.transform.Find("Name").GetComponent<Text>().text = symbolInfo.cardInfos[(int)cardName].cardName;

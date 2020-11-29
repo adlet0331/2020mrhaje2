@@ -12,7 +12,7 @@ public class UIControl : MonoBehaviour
 
     public bool moveSelected;
     public bool attackSelected;
-
+    
     private void Start()
     {
         moveButton = transform.Find("Move Button").gameObject;
