@@ -27,7 +27,7 @@ public class MinimapSymbolScript : MonoBehaviour
             this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardName].pieceSprite_R;
         }
         // HP 초기화
-        currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;
+        currentHP = SymbolInfo.Instance.cardInfos[(int)cardName].maxHP;
     }
     // Start is called before the first frame update
     void Start()
