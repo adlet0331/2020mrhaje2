@@ -28,7 +28,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
 
     void setCardName()
     {
-        if(team == 1)
+        if (team == 1)
         {
             NameToNum cardname = SymbolInfo.Instance.BoardPieceInfo_Left[index];
             this.cardName = cardname;
@@ -40,6 +40,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
             this.cardName = cardname;
             this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardname].pieceSprite_R;
         }
+        miniSymbol.setCardName(index, team, (int)cardName);
     }
 
     // Start is called before the first frame update
@@ -51,13 +52,13 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
         symbolInfo = GameObject.Find("Symbol Information").GetComponent<SymbolInfo>();
         turnManager = GameObject.Find("Turn Manager").GetComponent<TurnManager>();
 
+        //미니맵에서 자기 자신 찾기
+        miniSymbol = GameObject.Find("mini" + this.name).GetComponent<MinimapSymbolScript>();
+
         setCardName();
 
         // HP 초기화
         currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;
-
-        //미니맵에서 자기 자신 찾기
-        miniSymbol = GameObject.Find("mini" + this.name).GetComponent<MinimapSymbolScript>();
     }
 
     // Update is called once per frame

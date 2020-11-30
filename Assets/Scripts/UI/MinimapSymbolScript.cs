@@ -8,18 +8,31 @@ public class MinimapSymbolScript : MonoBehaviour
 
     public enum NameToNum { Infatry, Sniper, MachineGunner }
     public NameToNum cardName;
-    public int team;
 
     // 능력치
     public int currentHP;
 
+    public void setCardName(int index, int team, int cardNum)
+    {
+        if (cardNum == 0) cardName = NameToNum.Infatry;
+        else if (cardNum == 1) cardName = NameToNum.Sniper;
+        else cardName = NameToNum.MachineGunner;
+
+        if (team == 1)
+        {
+            this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardName].pieceSprite_L;
+        }
+        if (team == 2)
+        {
+            this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardName].pieceSprite_R;
+        }
+        // HP 초기화
+        currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;
+    }
     // Start is called before the first frame update
     void Start()
     {
         symbolInfo = GameObject.Find("Symbol Information").GetComponent<SymbolInfo>();
-
-        // HP 초기화
-        currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;
     }
 
     // 필드 자신에게서 HP 정보를 받아 활용
