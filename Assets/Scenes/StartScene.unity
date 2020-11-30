@@ -2209,7 +2209,7 @@ PrefabInstance:
     - target: {fileID: 537387998873626237, guid: 6d0122a3026e7bb46930688414c1d4a9,
         type: 3}
       propertyPath: m_text
-      value: "\uC800\uACA9\uBCD1"
+      value: "\uC800\uACA9\uC218"
       objectReference: {fileID: 0}
     - target: {fileID: 537387998873626242, guid: 6d0122a3026e7bb46930688414c1d4a9,
         type: 3}
@@ -2905,7 +2905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950059957
@@ -3295,6 +3295,8 @@ MonoBehaviour:
     move: 1
     range: 2
     damage: 60
+  BoardPieceInfo_Left: 
+  BoardPieceInfo_Right: 
 --- !u!4 &2145139165
 Transform:
   m_ObjectHideFlags: 0

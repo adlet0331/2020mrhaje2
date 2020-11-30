@@ -12,7 +12,7 @@ public class MinimapSymbolScript : MonoBehaviour
     // 능력치
     public int currentHP;
 
-    public void setCardName(int index, int team, int cardNum)
+    public void setPiece(int index, int team, int cardNum)
     {
         if (cardNum == 0) cardName = NameToNum.Infatry;
         else if (cardNum == 1) cardName = NameToNum.Sniper;

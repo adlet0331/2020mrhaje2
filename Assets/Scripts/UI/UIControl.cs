@@ -14,6 +14,22 @@ public class UIControl : MonoBehaviour
     public bool moveSelected;
     public bool attackSelected;
     
+    public void setPieceUIFalse()
+    {
+        foreach (SymbolScript symbolScript in allSymbols)
+        {
+            symbolScript.PieceSelect(false);
+        }
+        return;
+    }
+    public void MoveButton()
+    {
+        moveSelected = true;
+    }
+    public void AttackButton()
+    {
+        attackSelected = true;
+    }
     private void Start()
     {
         moveButton = transform.Find("Move Button").gameObject;
@@ -25,14 +41,11 @@ public class UIControl : MonoBehaviour
     {
         if (EventSystem.current.IsPointerOverGameObject() == true && Input.GetMouseButtonDown(1))
         {
-            foreach (SymbolScript symbolScript in allSymbols)
-            {
-                symbolScript.PieceSelect(false);
-            }
+            setPieceUIFalse();
         }
 
-        moveSelected = moveButton == EventSystem.current.currentSelectedGameObject;
-        attackSelected = attackButton == EventSystem.current.currentSelectedGameObject;
+        //moveSelected = moveButton == EventSystem.current.currentSelectedGameObject;
+        //attackSelected = attackButton == EventSystem.current.currentSelectedGameObject;
 
         if (selectedPiece != null)
         {

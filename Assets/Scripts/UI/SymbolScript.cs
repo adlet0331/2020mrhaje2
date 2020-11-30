@@ -26,21 +26,23 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
 
     [SerializeField] private bool selected;
 
-    void setCardName()
+    void setPiece()
     {
         if (team == 1)
         {
             NameToNum cardname = SymbolInfo.Instance.BoardPieceInfo_Left[index];
             this.cardName = cardname;
             this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardname].pieceSprite_L;
+            this.transform.GetChild(4).GetComponent<Text>().text = SymbolInfo.Instance.cardInfos[(int)cardname].cardName;
         }
         if(team == 2)
         {
             NameToNum cardname = SymbolInfo.Instance.BoardPieceInfo_Right[index];
             this.cardName = cardname;
             this.transform.GetChild(0).GetComponent<Image>().sprite = SymbolInfo.Instance.cardInfos[(int)cardname].pieceSprite_R;
+            this.transform.GetChild(4).GetComponent<Text>().text = SymbolInfo.Instance.cardInfos[(int)cardname].cardName;
         }
-        miniSymbol.setCardName(index, team, (int)cardName);
+        miniSymbol.setPiece(index, team, (int)cardName);
     }
 
     // Start is called before the first frame update
@@ -55,7 +57,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
         //미니맵에서 자기 자신 찾기
         miniSymbol = GameObject.Find("mini" + this.name).GetComponent<MinimapSymbolScript>();
 
-        setCardName();
+        setPiece();
 
         // HP 초기화
         currentHP = symbolInfo.cardInfos[(int)cardName].maxHP;
@@ -84,7 +86,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
     public void OnPointerClick(PointerEventData eventData)
     {
         // 턴이 맞아야만 실행됨
-        if (turnManager.turn != team) return;
+        if (turnManager.turn != team || eventData.button != PointerEventData.InputButton.Right) return;
         if (!selected)
         {
             // 다른 모든 피스에 대해 PieceSelect(false) 실행
@@ -100,6 +102,7 @@ public class SymbolScript : MonoBehaviour, IPointerClickHandler, IPointerDownHan
     // 공격; 유닛을 누르는 순간 실행됨
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Right) return;
         if (pieceUI.attackSelected)
         {
             pieceUI.selectedPiece.GetComponent<SymbolScript>().Attack(this);
